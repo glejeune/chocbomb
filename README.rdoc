@@ -1,0 +1,34 @@
+= ChocBomb
+
+ChocBomb is a shameful copy of ChocTop[https://github.com/drnic/choctop] - Build and deploy tools for Cocoa apps using Sparkle for distributions and upgrades; it’s like Hoe but for Cocoa apps.
+
+== So, Why not ChocTop ?
+
+ChocTop[https://github.com/drnic/choctop] depends on RubyCocoa. Andif it is installed on every Mac 10.5+, it can only be used with the default's ruby installation. ChocBomb can be use (but this was not tested yet ;)) with ruby 1.8/1.9, macruby, jRuby, ...
+
+This choise don't comes without any consequences... And ChocBomb is (right now) very incomplete, compare to ChocTop!
+
+== Contributing to ChocBomb
+ 
+* Check out the latest master to make sure the feature hasn't been implemented or the bug hasn't been fixed yet
+* Check out the issue tracker to make sure someone already hasn't requested it and/or contributed it
+* Fork the project
+* Start a feature/bugfix branch
+* Commit and push until you are happy with your contribution
+* Make sure to add tests for it. This is important so I don't break it in a future version unintentionally.
+* Please try not to mess with the Rakefile, version, or history. If you want to have your own version, or is otherwise necessary, that is fine, but please isolate to its own commit so I can cherry-pick around it.
+
+== Copyright
+
+A huge part of the code come from the ChocTop[https://github.com/drnic/choctop] project and is Copyright © 2009-2011 Dr Nic Williams, drnicwilliams@gmail.com under the MIT Licence.
+
+(The MIT License)
+
+Copyright © 2011 Gregoire Lejeune, gregoire.lejeune@free.fr
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the ‘Software’), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED ‘AS IS’, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
