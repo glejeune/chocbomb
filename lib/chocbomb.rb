@@ -15,6 +15,8 @@ module ChocBomb
     attr_accessor :release_notes
     attr_accessor :private_key
     
+    attr_accessor :minimum_osx_version
+    
     # The background image
     attr_accessor :background_file
     
@@ -146,6 +148,8 @@ module ChocBomb
       @pkg_relative_url = "#{@base_url.gsub(%r{/$}, '')}/#{@pkg_name}".gsub(%r{^.*#{@host}}, '')
       
       @release_notes_template = "release_notes_template.html.erb"
+      
+      @minimum_osx_version ||= nil
     end
   end
 end

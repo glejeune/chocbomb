@@ -35,6 +35,7 @@ module ChocBomb
                                :version => "2.0") do
             xml.channel do
               xml.title(chocbomb.name)
+              xml.tag! "sparkle:minimumSystemVersion", chocbomb.minimum_osx_version unless chocbomb.minimum_osx_version.nil?
               xml.description("#{chocbomb.name} updates")
               xml.link(chocbomb.base_url)
               xml.language('en')
