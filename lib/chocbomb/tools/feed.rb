@@ -34,7 +34,7 @@ module ChocBomb
                                'xmlns:sparkle' => "http://www.andymatuschak.org/xml-namespaces/sparkle",
                                :version => "2.0") do
             xml.channel do
-              xml.title(@name)
+              xml.title(chocbomb.name)
               xml.description("#{chocbomb.name} updates")
               xml.link(chocbomb.base_url)
               xml.language('en')
