@@ -6,7 +6,7 @@ module ChocBomb
       attr_accessor :chocbomb
       def initialize(cb)
         @chocbomb = cb
-        @files = {}
+        @files_for_dmg = {}
       end
       
       def self.detach(cb)
@@ -33,8 +33,8 @@ module ChocBomb
         end
       end
       
-      def make
-        @files = chocbomb.files.inject({}) do |files, file|
+      def make        
+        @files_for_dmg = chocbomb.files.inject({}) do |files, file|
           path_or_helper, options = file
           path = case path_or_helper
             when Symbol
@@ -48,13 +48,18 @@ module ChocBomb
             files[path] = options 
             options[:name] ||= File.basename(path)
           end
+          if path =~ %r{\.webloc$}
+            files[path] = options 
+            options[:name] ||= File.basename(path)
+            options[:link] = true
+          end
           files
         end
-        
+
         FileUtils.rm_r(chocbomb.dmg_src_folder) if File.exists? chocbomb.dmg_src_folder
         FileUtils.mkdir_p(chocbomb.dmg_src_folder)
         
-        @files.each do |path, options|
+        @files_for_dmg.each do |path, options|
           if options[:link]
             webloc = <<-WEBLOC.gsub(/^      /, '')
             <?xml version="1.0" encoding="UTF-8"?>
@@ -67,8 +72,8 @@ module ChocBomb
             </plist>
             WEBLOC
 
-            target       = File.join(dmg_src_folder, options[:name])
-            File.new(target).print webloc
+            target = File.join(chocbomb.dmg_src_folder, options[:name])
+            File.open(target, 'w').write(webloc)
           else
             target = File.join(chocbomb.dmg_src_folder, options[:name])
             FileUtils.copy_entry(path, target)      
@@ -166,7 +171,7 @@ module ChocBomb
       end
     
       def set_position_of_files
-        @files.map do |file_options|
+        @files_for_dmg.map do |file_options|
           path, options = file_options
           target        = options[:name]
           position      = options[:position].join(", ")

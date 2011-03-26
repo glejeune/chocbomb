@@ -55,6 +55,7 @@ module ChocBomb
     def file(*args, &block)
       path_or_helper, options = args.first.is_a?(Hash) ? [block, args.first] : [args.first, args.last]
       throw "add_files #{path_or_helper}, :position => [x,y] option is missing" unless options[:position]
+      
       @files[path_or_helper] = options
     end
     
@@ -74,8 +75,8 @@ module ChocBomb
       throw "add_link :name => 'Name' option is missing" unless options[:name]
       options[:name].gsub!(/(\.webloc|\.url)$/, '')
       options[:name] += ".webloc"
-      self.files ||= {}
-      files[options[:name]] = options
+      
+      @files[options[:name]] = options
     end
     
     def initialize
@@ -84,7 +85,7 @@ module ChocBomb
 
       yield self if block_given?
       
-      default      
+      default
       define_tasks
     end
     
