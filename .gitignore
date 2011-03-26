@@ -3,3 +3,4 @@
 *.iml
 doc
 pkg
+.rake_tasks
