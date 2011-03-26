@@ -143,7 +143,6 @@ module ChocBomb
       
       @appcast_filename ||= su_feed_url ? File.basename(su_feed_url) : 'my_feed.xml'
       @private_key ||= File.expand_path('dsa_priv.pem')
-      @dsa_signature ||= `openssl dgst -sha1 -binary < "#{@pkg}" | openssl dgst -dss1 -sign "#{@private_key}" | openssl enc -base64`
       
       @versionless_pkg_name = "#{@name}.dmg"
       @pkg_relative_url = "#{@base_url.gsub(%r{/$}, '')}/#{@pkg_name}".gsub(%r{^.*#{@host}}, '')

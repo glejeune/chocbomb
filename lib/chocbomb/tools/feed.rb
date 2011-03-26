@@ -26,6 +26,8 @@ module ChocBomb
       end
       
       def make_appcast
+        dsa_signature = `openssl dgst -sha1 -binary < "#{chocbomb.pkg}" | openssl dgst -dss1 -sign "#{chocbomb.private_key}" | openssl enc -base64`
+        
         FileUtils.mkdir_p(chocbomb.build_path)
         appcast = File.open("#{chocbomb.build_path}/#{chocbomb.appcast_filename}", 'w') do |f|
           xml = Builder::XmlMarkup.new(:indent => 2)
@@ -53,7 +55,7 @@ module ChocBomb
                               :length => "#{File.size(chocbomb.pkg)}",
                               :type => "application/dmg",
                               :"sparkle:version" => chocbomb.version,
-                              :"sparkle:dsaSignature" => chocbomb.dsa_signature)
+                              :"sparkle:dsaSignature" => dsa_signature)
               end
             end
           end
