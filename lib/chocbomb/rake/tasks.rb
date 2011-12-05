@@ -5,6 +5,7 @@ require 'chocbomb/tools/feed'
 module ChocBomb
   module Tasks
     include Tools
+    include Rake::DSL
     
     def define_tasks
       return unless Object.const_defined?("Rake")

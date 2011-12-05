@@ -18,6 +18,7 @@ Jeweler::Tasks.new do |gem|
   
   gem.add_development_dependency "jeweler", "~> 1.5.2"
   gem.add_development_dependency "rcov", ">= 0"
+  gem.add_development_dependency "rdoc", ">= 0"
 end
 Jeweler::RubygemsDotOrgTasks.new
 
@@ -37,8 +38,8 @@ end
 
 task :default => :test
 
-require 'rake/rdoctask'
-Rake::RDocTask.new do |rdoc|
+require 'rdoc/task'
+RDoc::Task.new do |rdoc|
   version = File.exist?('VERSION') ? File.read('VERSION') : ""
 
   rdoc.rdoc_dir = 'rdoc'
