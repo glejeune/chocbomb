@@ -3,6 +3,7 @@ require 'rubygems'
 require 'plist'
 require 'escape'
 require 'chocbomb/rake/tasks'
+require 'erb'
 
 module ChocBomb
   class Configuration
