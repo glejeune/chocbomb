@@ -27,6 +27,7 @@ Gem::Specification.new do |s|
     "chocbomb.gemspec",
     "lib/chocbomb.rb",
     "lib/chocbomb/rake/tasks.rb",
+    "lib/chocbomb/tool.rb",
     "lib/chocbomb/tools/dmg.rb",
     "lib/chocbomb/tools/feed.rb",
     "lib/chocbomb/tools/images.rb",
